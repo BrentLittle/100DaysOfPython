@@ -44,4 +44,3 @@ print(bandName)
 # OR 
 #print(city+" "+petName)
 #5. Make sure the input cursor shows on a new line, see the example at:
-#   https://band-name-generator-end.appbrewery.repl.run/
