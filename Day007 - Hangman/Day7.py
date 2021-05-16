@@ -8,4 +8,39 @@
 
 
 ## hangmanwordgame.com
+import random
 
+wordList = ["aardvark", "baboon", "camel"]
+randWord = random.choice(wordList)
+display = ['_'] * len(randWord)
+lettersGuessed = []
+lives = 6
+ 
+
+while True:
+    userGuess = input("Please Guess a letter: ").lower()
+    letterCorrect = False
+    for index in range(0,len(display)):
+        if userGuess == randWord[index]:
+            display[index] = randWord[index]
+            letterCorrect = True
+        
+    if not letterCorrect:
+        lives-=1
+        
+    lettersGuessed.append(userGuess)
+    
+    print(f"Hidden Word: {' '.join(display)}")
+    print(f"Letters Guessed: {' '.join(lettersGuessed)}")
+    print(f"Lives Remaining: {lives}")
+
+
+    if (lives != 0) and ("_" not in display):
+        print("You Win")
+        break
+    elif (lives == 0):
+        print("Game Over")
+        print(f"The Correct word was: {randWord}")
+        break
+
+    print("\n\n\n")
