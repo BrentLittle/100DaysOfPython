@@ -2,8 +2,8 @@
 import requests
 
 
-AV_APIKEY = "7O5YDWKRFQLZV8Z1"
-NEWS_APIKEY = "a8424667c2764174bd2162cac1941554"
+AV_APIKEY = ""
+NEWS_APIKEY = ""
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -37,9 +37,10 @@ posDifferenceInPrice = abs(float(yesterdayClosingPrice) - float(dayBeforeLastClo
 #TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
 diffPercent = posDifferenceInPrice/float(yesterdayClosingPrice)*100
 
+print(diffPercent)
 
 #TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
-if diffPercent > 1:
+if diffPercent > 3:
     
     #TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.    
     newsParams = {
@@ -50,14 +51,14 @@ if diffPercent > 1:
     response = requests.get(NEWS_ENDPOINT, params=newsParams)
     articles = response.json()["articles"]
 
-#TODO 7. - Use Python slice operator to create a list that contains the first 3 articles.
+    #TODO 7. - Use Python slice operator to create a list that contains the first 3 articles.
     topThreeArticles = articles[:3]
   
 
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
+    #TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
     articleBriefings = [f"Headline:{article['title']}. \nBrief: {article['description']}" for article in topThreeArticles]
 
 
-#TODO 9. - Print out each of the articles 
-for article in articleBriefings:
-    print(f"{article}\n")
+    #TODO 9. - Print out each of the articles 
+    for article in articleBriefings:
+        print(f"{article}\n")
