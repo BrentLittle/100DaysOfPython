@@ -1,0 +1,44 @@
+/* ############ TAG SELECTORS ############*/
+
+h1 {
+    color: red;
+    font-size: 150px;
+}
+
+
+/* img{
+    background-color: red;
+} */
+
+
+/* ############ CLASS SELECTORS ############*/
+
+.bacon {
+    background-color: green;
+}
+
+.broccoli {
+    background-color: red;
+}
+
+
+/* .circular {
+    border-radius: 50%;
+} */
+
+
+/* ############ ID SELECTORS ############
+    IDs should be unique in HTML document
+*/
+
+#heading {
+    color: darkolivegreen;
+}
+
+
+/* ############ PSEUDO SELECTORS ############*/
+
+img:hover {
+    border-radius: 50%;
+    background-color: gold;
+}
