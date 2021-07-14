@@ -1,0 +1,23 @@
+h1 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.topContainer {
+    background-color: #B2B1B9;
+}
+
+.middleContainer {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.bottomContainer {
+    width: 200px;
+    height: 200px;
+    background-color: gold;
+}
