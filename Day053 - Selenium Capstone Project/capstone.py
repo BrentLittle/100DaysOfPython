@@ -13,7 +13,9 @@ BROWSER_HEADER = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"
 }
 
-driver = webdriver.Chrome(executable_path=CHROME_DRIVER)
+options = webdriver.ChromeOptions()
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+driver = webdriver.Chrome(executable_path=CHROME_DRIVER, options=options)
 
 
 response = requests.get(url=ZILLOW, headers=BROWSER_HEADER)
@@ -40,24 +42,24 @@ for n in range(len(addresses)):
     addresses[n] = addresses[n].getText()
 
 
-if len(links) == len(prices) and len(prices) == len(addresses):
-    for n in range(len(links)):
-        driver.get(GOOGLE_FORM)
-        time.sleep(1)
+for n in range(len(links)):
+    driver.get(GOOGLE_FORM)
+    time.sleep(1)
         
-        addressBox = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-        addressBox.send_keys(addresses[n])
+    addressBox = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
         
-        priceBox = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-        priceBox.send_keys(prices[n])
-        
-        URLBox =  driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
-        URLBox.send_keys(links[n])
+    priceBox = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    
+    URLBox =  driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
 
-        submitBtn = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div/span')
-        submitBtn.click()
+    submitBtn = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div/span')
+    
+    addressBox.send_keys(addresses[n])
+    priceBox.send_keys(prices[n])
+    URLBox.send_keys(links[n])
+    submitBtn.click()
 
-        time.sleep(0.5)
+    time.sleep(0.5)
 
 driver.quit()
 
