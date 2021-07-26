@@ -139,6 +139,30 @@ body {
 }
 
 
+/* CTA section */
+
+#cta {
+    background-color: #ff4c68;
+    color: white;
+    text-align: center;
+    padding: 7% 15%;
+}
+
+.ctaHeading {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+
+
+/* Footer Section */
+
+#footer {
+    padding: 7% 15%;
+    text-align: center;
+}
+
+
 /* Media Queries */
 
 @media (max-width:1028px) {
