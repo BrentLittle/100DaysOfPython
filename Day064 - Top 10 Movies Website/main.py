@@ -9,7 +9,7 @@ import requests
 MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
 MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 MOVIE_DB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
-MOVIE_DB_API_KEY = "531179a0c500d15f71069283b5e6f502"   # your API key here
+MOVIE_DB_API_KEY = ""   # your API key here
 
 
 
