@@ -26,12 +26,13 @@ translationDict = {
     '-':'-....-', '(':'-.--.', 
     ')':'-.--.-',
 }
+
 invertedDict = {
     value : key for (key, value) in translationDict.items()
 }
 
 
-# given a plain string of text convert it to a morse encoding 
+# Given a plain string of text convert it to a morse encoding 
 # any unsupported morse encodings will be replaced with an empty string
 def encrypt(text):
     convertedText = ""
