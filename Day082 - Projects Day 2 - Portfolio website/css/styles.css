@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+    color: #40514E;
+}
+
+h1, h2 {
+    color: #66BFBF;
+}
+
+h1 {
+    font-size: 6rem;
+    width: 50%;
+    font-family: 'Indie Flower', cursive;
+    margin: 50px auto 0 auto;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+h3, a {
+    color: #11999E;
+}
+
+p {
+    line-height: 2;
+}
+
+hr {
+    border: dotted #EAF6F6 6px;
+    border-bottom: none;
+    width: 15%;
+    margin: 50px auto;
+}
+
+a {
+    color: #11999E;
+    font-size: 1.25rem;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+a:hover {
+    color: #EAF6F6;
+}
+
+.topContainer {
+    background-color: #EAF6F6;
+    position: relative;
+    padding-top: 100px;
+    line-height: 2;
+}
+
+.middleContainer {
+    margin: 75px 0;
+}
+
+.bottomContainer {
+    background-color: #66BFBF;
+    padding: 50px 0 20px;
+}
+
+.topCloud {
+    position: absolute;
+    right: 200px;
+    top: 50px;
+}
+
+.bottomCloud {
+    position: absolute;
+    left: 200px;
+    bottom: 300px;
+}
+
+.skill-row {
+    margin: 100px auto 100px auto;
+    width: 50%;
+    text-align: left;
+}
+
+.codeImg {
+    width: 25%;
+    float: left;
+    margin: 0 30px 0 0;
+}
+
+.golfImg {
+    width: 25%;
+    float: right;
+    margin: 0 30px 0 0;
+}
+
+.profilePic {
+    width: 25%;
+    margin: 50px 0 10px 0;
+}
+
+.contactMsg {
+    width: 50%;
+    margin: 40px auto 60px auto;
+}
+
+.btn {
+    box-shadow: inset 0px -3px 7px 0px #11999E;
+    background: linear-gradient(to bottom, #11999E 5%, #11999E 100%);
+    background-color: #11999E;
+    border-radius: 10px;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 11px 23px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #66BFBF 5%, #66BFBF 100%);
+    background-color: #66BFBF;
+    text-decoration: none;
+    color: white;
+}
+
+.btn:active {
+    position: relative;
+    top: 1px;
+}
+
+.copyright {
+    font-size: .75rem;
+    color: #EAF6F6;
+}
