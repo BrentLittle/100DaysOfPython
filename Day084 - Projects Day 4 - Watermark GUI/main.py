@@ -1,5 +1,6 @@
 import os
 import tkinter as tk
+from tkinter import Label, Button, Entry
 from tkinter.filedialog import askopenfilename
 from PIL import Image
 
@@ -13,15 +14,6 @@ class image:
 
 imageToWatermark = image()
 watermarkImage = image()
-
-window = tk.Tk()
-window.title("Watermark Adder")
-window.config(padx = 25, pady = 25, bg = BACKGROUND_COLOR) 
-
-imgFilePathLabel = tk.Label(window,font = 40, width = 0, bg = BACKGROUND_COLOR)
-watermarkFilePathLabel = tk.Label(window,font = 40,width = 0, bg = BACKGROUND_COLOR)
-watermarkedFilePathLabel = tk.Label(window,font = 40,width = 0, bg = BACKGROUND_COLOR)
-
 
 def browsefunc(label, imgObject):
     filename = askopenfilename(filetypes = (("jpeg files","*.jpeg"), ("jpg files","*.jpg"), ("png files","*.png"),
@@ -40,18 +32,33 @@ def processImg(imageToMark, watermark):
     watermarkedFilePathLabel["text"] = f"File Successfully saved at:\n {os.path.dirname(os.path.realpath(__file__))}/WatermarkedImage.jpeg"
 
 
-getImgFilePathBtn = tk.Button(window, highlightbackground = BUTTON_BACKGROUND, text = "Select Image File", 
-                            font = 40, command = lambda: browsefunc(imgFilePathLabel, imageToWatermark))
-getWatermarkFilePathBtn = tk.Button(window, highlightbackground = BUTTON_BACKGROUND, text = "Select watermark File", 
-                                  font = 40, command = lambda: browsefunc(watermarkFilePathLabel, watermarkImage))
-getWatermarkImgBtn = tk.Button(window, highlightbackground = BUTTON_BACKGROUND, text = "Generate Watermarked Image", 
-                            font = 40, command = lambda: processImg(watermark = watermarkImage, imageToMark = imageToWatermark))
+# DEFINE GUI WINDOW
+window = tk.Tk()
+window.geometry('1100x375')
+window.title("Typing Speed Test")
+window.configure(bg = 'black', padx = 100)
 
-getImgFilePathBtn.grid(row = 1,column = 1)
-imgFilePathLabel.grid(row = 2,column = 1)
-getWatermarkFilePathBtn.grid(row = 3,column = 1)
-watermarkFilePathLabel.grid(row = 4,column = 1)
-getWatermarkImgBtn.grid(row = 5,column = 1)
-watermarkedFilePathLabel.grid(row = 6,column = 1)
+
+# TITLE
+title_label = Label(text = 'ADD A WATERMARK', font = ("Arial", 55, 'bold'), pady = 25, bg = 'black', fg = 'gold')
+title_label.grid(row = 0, column = 1)
+
+
+# INFORMATION LABELS
+imgFilePathLabel = Label(font = ("Arial",14,'bold'), bg = 'black', fg = "white")
+imgFilePathLabel.grid(row = 2, column = 0)
+watermarkFilePathLabel  = Label(font = ("Arial",14,'bold'), bg = 'black', fg = "white")
+watermarkFilePathLabel.grid(row = 2, column = 2)
+watermarkedFilePathLabel = Label(font = ("Arial",14,'bold'), bg = 'black', fg = "white", wraplength=300)
+watermarkedFilePathLabel.grid(row = 3, column = 1, pady=25)
+
+
+# BUTTONS
+selectImgBtn = Button(text = 'SELECT IMAGE',font = ("Arial", 16, 'bold'), command = lambda: browsefunc(imgFilePathLabel, imageToWatermark))
+selectImgBtn.grid(row = 1, column = 0, pady = 25)
+selectWatermarkBtn = Button(text = 'SELECT WATERMARK', font = ("Arial", 16, 'bold'), command = lambda: browsefunc(watermarkFilePathLabel, watermarkImage))
+selectWatermarkBtn.grid(row = 1, column = 2,  pady = 25)
+generateResultBtn = Button(text = 'GENERATE RESULT',font = ("Arial", 16, 'bold'), command = lambda: processImg(watermark = watermarkImage, imageToMark = imageToWatermark))
+generateResultBtn.grid(row = 2, column = 1, pady = 5)
 
 window.mainloop()
